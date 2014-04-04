@@ -1,0 +1,51 @@
+﻿@model JABlog.Models.RegisterExternalLoginModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title.
+    </h1>
+    <h2>Asociar su cuenta de @ViewBag.ProviderDisplayName.</h2>
+    <br />
+</div>
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Formulario de asociación</legend>
+        <div class="alert alert-success-alt alert-dismissable">
+                <span class="glyphicon glyphicon-certificate"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>Se ha autenticado correctamente con <strong>@ViewBag.ProviderDisplayName</strong>.
+                        Escriba un nombre de usuario para este sitio y haga clic en el botón Confirmar para finalizar
+                        el inicio de sesión.</div>
+        <hr class="colorgraph">
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName)
+            <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." type="text" name="UserName" id="UserName" class="form-control input-lg" value="@Html.DisplayFor(m => m.UserName)">
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+        <hr class="colorgraph">
+		<div class="form-group">
+            @Html.HiddenFor(m => m.ExternalLoginData)
+	        <input type="submit" class="btn btn-lg btn-success btn-block" value="Registrarse">
+		</div>
+       @*<ol>
+            <li class="name">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                v
+            </li>
+        </ol>
+        @Html.HiddenFor(m => m.ExternalLoginData)
+        <input type="submit" value="Registrarse" />*@
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

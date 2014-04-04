@@ -1,0 +1,36 @@
+﻿@model JABlog.Models.Comentario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Comentario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdUsuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdUsuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdNoticia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdNoticia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comentarios)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comentarios)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

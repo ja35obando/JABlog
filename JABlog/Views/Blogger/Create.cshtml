@@ -1,0 +1,50 @@
+﻿@model JABlog.Models.Blogger
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Crear el bio
+        </h1>
+        <br />
+    </div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Blog</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-star-empty"></span></span>
+            <input type="text" name="Name" id="Name" class="form-control input-lg" placeholder="Nombre" required/>
+		</div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bio)
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-bullhorn"></span></span>
+            <input type="text" name="Bio" id="Bio" class="form-control input-lg" placeholder="Bio" required/>
+		</div>
+        <br />
+        <div class="col-md-14">
+            <input type="submit" class="btn btn-lg btn-success btn-block" value="Crear">
+        </div>
+    </fieldset>
+}
+
+    <br />
+<ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+    <li data-slide-to="0" class="active">@Html.ActionLink("Volver a la lista", "Index")</li> 
+</ul>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

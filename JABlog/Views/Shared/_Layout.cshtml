@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>José Andrés - Blog</title>
+        <link href="~/Images/JA.png" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+        @Styles.Render("~/Content/Shamrock.css")
+        @Styles.Render("~/Content/global.css")
+        @if (Page.id == "HomeIndex")
+        {
+           @Styles.Render("~/Content/HomeIndex.css")   
+        }
+        @if (Page.id == "HomeAbout")
+        {
+            @Styles.Render("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+            @Styles.Render("~/Content/HomeAbout.css")
+        }
+        @if (Page.id == "HomeContact")
+        {
+            @Styles.Render("~/Content/HomeContact.css")
+        }
+        @if (Page.id == "HomeComment")
+        {
+            @Styles.Render("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+            @Styles.Render("~/Content/HomeComment.css")
+        }
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+            <br />
+            <div id="div" class="modal-header">
+                <a data-toggle="modal" data-target="#Login">
+                    <img id="JA" src="/Images/JA.svg.png" align="left"/>
+                </a>
+                <h1 id="title" class="site-title">Bienvenido a mi Blog</h1>
+                <br />
+                <ul class="nav nav-pills nav-justified">
+                    <li data-slide-to="0">@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li data-slide-to="1">@Html.ActionLink("Acerca de", "About", new { controller="Home", id=1 })</li>
+                    <li data-slide-to="2"><a data-toggle="modal" data-target="#contact">Contácteme</a></li>
+                    @if (Page.id == "HomeComment")
+                    {
+                      <li data-slide-to="3" class="active"><a>Comentarios</a></li>
+                    }
+                </ul>   
+                <br />
+            </div>
+        </header>
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=656929604373311";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like" data-href="http://localhost:1726/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+        <div id="body">
+            <br />
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                <br />
+                @RenderBody()
+                <br />
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="well well-sm quick-contact">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1 class="title-contact">
+                                    Contacto</h1>
+                            </div>
+                            <div class="col-md-4 contact-email">
+                                <h3>
+                                    José Andrés Obando Díaz</h3>
+                                <h5>
+                                    ja35obando@gmail.com</h5>
+                                <h5>
+                                    ja35obando@hotmail.es</h5>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row contact row-first">
+                                    <div class="col-md-6">
+                                        <a href="http://www.facebook.com/ja35obando" class="facebook"><i class="fa fa-facebook"><br/></i> Facebook</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="http://www.twitter.com/ja35obando" class="twitter"><i class="fa fa-twitter"><br/></i> Twitter</a>
+                                    </div>
+                                </div>
+                                <div class="row contact">
+                                    <div class="col-md-6">
+                                        <a href="https://plus.google.com/+JoséAndrésObandoDíaz35" class="google"><i class="fa fa-google-plus"><br/></i> Plus</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="http://www.linkedin.com/pub/jos%C3%A9-andr%C3%A9s-obando-d%C3%ADaz/92/886/7b0" class="linkedin"><i class="fa fa-linkedin"><br/></i>LinkedIn</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </footer>
+        @Scripts.Render("//code.jquery.com/jquery.js")
+        @Scripts.Render("//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")
+        @Scripts.Render("//codeorigin.jquery.com/jquery-1.10.2.min.js")
+        @Scripts.Render("/Scripts/General.js")
+        @if (Page.id == "HomeIndex")
+        {
+            @Scripts.Render("/Scripts/HomeIndex.js")
+        }
+        @if (Page.id == "HomeAbout")
+        {
+            @Scripts.Render("/Scripts/HomeAbout.js")  
+        }
+        @if (Page.id == "HomeContact")
+        {
+            @Scripts.Render("/Scripts/HomeContact.js")
+        }
+        @if (Page.id == "HomeComment")
+        {
+            @Scripts.Render("/Scripts/HomeComment.js")
+        }
+        @RenderSection("scripts", required: false)
+        <div class="modal fade" id="Login" tabindex="2" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-user"></span>  Iniciar Sección.</h4>
+                    </div>
+                    <form role="form" action="/Views/login.cshtml" method="post">
+                        <fieldset>
+                            <br />
+                            <div class="col-xs-12 col-sm-8 col-md12 col-sm-offset-2 col-md-offset-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Usuario">
+				                </div>
+                                <br />
+				                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+                                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Contraseña">
+				                </div>
+                                <div class="row contact row-first">
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="reset" class="btn btn-lg btn-danger btn-block" value="Limpiar"/>
+                                    </div>
+                                </div>
+                            </div>
+				        </fieldset>
+		            </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="contact" tabindex="2" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title"><span class="glyphicon glyphicon-edit"></span> Contácteme.</h4>
+                    </div>
+                    <form action="/Logic/Mailer.cshtml" method="post" accept-charset="utf-8">
+                        <div class="modal-body" style="padding: 5px;">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+                                        <input class="form-control" name="firstname" placeholder="Nombre" type="text" required autofocus />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-star-empty"></span></span>
+                                        <input class="form-control" name="lastname" placeholder="Apellidos" type="text" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                        <input class="form-control" name="email" placeholder="Correo Electronico" type="email" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
+                                        <input class="form-control" name="subject" placeholder="Encabezado" type="text" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-comment"></span></span>
+                                        <textarea style="resize:vertical;" class="form-control" placeholder="Mensaje..." rows="6" name="comment" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="panel-footer">
+                            <input type="submit" class="btn btn-success" value="Enviar"/>
+                                <!--<span class="glyphicon glyphicon-ok"></span>-->
+                            <input type="reset" class="btn btn-danger" value="Limpiar"/>
+                                <!--<span class="glyphicon glyphicon-remove"></span>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

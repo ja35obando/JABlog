@@ -1,0 +1,43 @@
+﻿@model IEnumerable<JABlog.Models.Entradas>
+
+@{
+    Page.Id = "HomeIndex";
+}
+<div id="comments" class="container">
+	 <div id="blog" class="row"> 
+         <div class="panel">
+            <br />
+            <h1>
+                Entradas del Blogger
+            </h1>
+            <br />
+        </div>
+        <hr />
+        @foreach (var item in Model) 
+        {
+            <div class="col-md-12 blogShort">
+                <br />
+                <div class="panel">
+                    <br />
+                    <h1>
+                       @Html.DisplayFor(modelItem => item.Titulo)
+                    </h1>
+                    <br />
+                </div>
+                <br />
+                <article id="articulo2">
+                   @Html.DisplayFor(modelItem => item.Contenido)    
+                </article> <br />
+                <small class="pull-right"> <p>Posteado: <em> @Html.DisplayFor(modelItem => item.Fecha)  </em></p></small>
+                <br /> <br />
+                <div class="timeline-footer">
+                    <a class="btn btn-blog pull-right"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                    <a class="btn btn-blog pull-right"><i class="glyphicon glyphicon-comment"></i></a>
+                    <ul class="nav nav-pills" style="margin-bottom:2%">
+                        <li data-slide-to="0" class="active">@Html.ActionLink("Continuar Leyendo", "Comment", new { controller="Home", id=item.id })</li> 
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>

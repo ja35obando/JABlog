@@ -1,0 +1,56 @@
+﻿@model JABlog.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title.
+    </h1>
+    <br />
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <section id="loginForm">
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Formulario de inicio sección</legend>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName)
+                    <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." type="text" name="UserName" id="UserName" class="form-control input-lg" placeholder="Nombre de usuario">
+                    @Html.ValidationMessageFor(m => m.UserName)
+		        </div>
+                <div class="form-group">
+                     @Html.LabelFor(m => m.Password)
+                    <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." type="password" name="Password" id="Password" class="form-control input-lg" placeholder="Contraseña">
+                    @Html.ValidationMessageFor(m => m.Password)
+		        </div>
+                <hr class="colorgraph">
+		        <div class="form-group">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Iniciar sesión">
+			    </div>
+			</fieldset>
+        }
+        </section>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+       <section class="social" id="socialLoginForm">
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+            <br />
+        </section>
+    </div>
+</div>
+<br />
+<br />
+<ul class="nav nav-pills nav-justified">
+    <li class="btn btn-lg btn-primary btn-block">@Html.ActionLink("Regístrese", "Register")</li>
+</ul>
+@section Scripts {
+    @Scripts.Render("~/Scripts/IniciarSeccion.js")
+}

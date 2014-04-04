@@ -1,0 +1,53 @@
+﻿@model JABlog.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title.
+    </h1>
+    <h2>Cree una cuenta nueva.</h2>
+    <br />
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <fieldset>
+                <legend>Formulario de registro</legend>
+                <hr class="colorgraph">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName)
+                    <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." type="text" name="UserName" id="UserName" class="form-control input-lg" placeholder="Nombre de usuario">
+                </div>
+                <div class="form-group">
+                     @Html.LabelFor(m => m.Password)
+                    <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." data-val-length-max="100" data-val-length-min="6" type="password" name="Password" id="Password" class="form-control input-lg" placeholder="Contraseña">
+                </div>
+                <div class="form-group">
+                     @Html.LabelFor(m => m.ConfirmPassword)
+                    <input data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." data-val-equalto-other="*.Password" type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control input-lg" placeholder="Confirmar Contraseña">
+                </div>
+                <hr class="colorgraph">
+		        <div class="form-group">
+	                <input type="submit" class="btn btn-lg btn-success btn-block" value="Registrarse">
+		        </div>
+            </fieldset>
+        }
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <br />
+        <section class="social" id="socialLoginForm">
+            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+            <br />
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

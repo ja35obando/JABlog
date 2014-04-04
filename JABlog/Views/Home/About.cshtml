@@ -1,0 +1,39 @@
+﻿@model JABlog.Models.Blog
+@{
+    Page.id = "HomeAbout";
+}
+
+<div class="container">
+    <div class="row well">
+        <div class="panel">
+            <img class="pic img-circle" src="//scontent-b-mia.xx.fbcdn.net/hphotos-frc3/t1.0-9/305396_4274696659412_1768039757_n.jpg" alt="...">
+            <div class="name"><small>@ViewBag.Me</small>
+            </div>
+        </div>
+        <br>
+        <br><br>
+        <div id="articulo" class="col-md-12">
+            <article>
+                @ViewBag.Bio
+            </article>
+        </div>
+    </div>
+    
+    <div class="row well">
+         <div id="articulo2" class="col-md-12">
+            <div class="panel">
+                <br />
+                <h3 id="h3">
+                   @Html.DisplayFor(model => model.Name)
+                </h3>
+                <br />
+            </div>
+            <br />
+            <article>
+                @Html.DisplayFor(model => model.Detalle)
+            </article>
+        </div>
+    </div>
+</div>
+<div id="push">
+</div>

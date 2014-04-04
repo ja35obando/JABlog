@@ -1,0 +1,84 @@
+﻿@model IEnumerable<JABlog.Models.Comentario>
+
+@{
+    ViewBag.Title = "Index";
+    var cont = 0;
+}
+
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Index de Entradas
+        </h1>
+        <br />
+    </div>
+    <ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+        <li data-slide-to="0" class="active">@Html.ActionLink("Create New", "Create")</li> 
+    </ul>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                         <td class="col-md-2">
+                            @Html.DisplayFor(modelItem => item.IdUsuario)
+                        </td>
+                        <td class="col-md-5">
+                            @Html.DisplayFor(modelItem => item.IdNoticia)
+                        </td>
+                        <td class="col-md-2">
+                            @Html.DisplayFor(modelItem => item.Comentarios)
+                        </td>
+                        <th class="col-md-2">
+                            Opciones del Blog
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        if (cont == 0)
+                        {
+                            <tr class="active">
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => item.IdUsuario)
+                                </td>
+                                <td class="col-md-5">
+                                    @Html.DisplayFor(modelItem => item.IdNoticia)
+                                </td>
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                </td>
+                                <td class="col-md-2">
+                                    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                                </td>
+                            </tr>
+                            cont = 1;
+                        }else{
+                            <tr>
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => item.IdUsuario)
+                                </td>
+                                <td class="col-md-5">
+                                    @Html.DisplayFor(modelItem => item.IdNoticia)
+                                </td>
+                                <td class="col-md-2">
+                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                </td>
+                                <td class="col-md-2">
+                                    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                                </td>
+                            </tr>
+                            cont = 0;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

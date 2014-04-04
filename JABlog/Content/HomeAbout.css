@@ -1,0 +1,50 @@
+﻿#articulo {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#h3:before {
+  content: "\2666";
+  margin-right: 10px;
+}
+#h3 {
+    text-align: center;
+}
+#h3::after {
+  content: "\2666";
+  margin-left: 10px;
+}
+
+.name
+{
+    position:absolute;
+    padding-left:200px;
+    font-size:30px;
+}
+
+.name::after {
+  content: "\2462 \2464";
+  margin-left: 10px;
+}
+
+.dropdown
+{
+    position:absolute;
+}
+
+.change
+{
+ position:relative; 
+ bottom:20px;
+ padding:1px;
+ color:white;
+ text-decoration:none;
+}
+
+
+.change:hover
+{
+ text-decoration:none;
+ background-color:black;
+ color:white;
+}

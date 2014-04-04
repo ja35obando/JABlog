@@ -1,0 +1,62 @@
+﻿@model JABlog.Models.Entradas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Detalles de la blog
+        </h1>
+        <br />
+    </div>
+    <fieldset>
+        <legend>Blog</legend>
+        <h2 style="text-align:center;">@Html.DisplayFor(model => model.Titulo)</h2>
+        <br />
+        <article id="articulo2">
+            @Html.DisplayFor(model => model.Contenido)
+        </article> <br />
+        <div class="timeline-footer">
+            <a class="btn btn-blog pull-right marginBottom10" title="@Html.DisplayFor(model => model.Fecha)">Posteado: <em> @Html.DisplayFor(model => model.Fecha) </em></a> 
+        </div>
+    </fieldset>
+    <ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+        <li data-slide-to="0" class="active">@Html.ActionLink("Edit", "Edit", new { id=Model.id })</li> 
+        <li data-slide-to="0" class="active">@Html.ActionLink("Volver a la lista", "Index")</li> 
+    </ul>
+</div>
+
+@*<h2>Details</h2>
+
+<fieldset>
+    <legend>Entradas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contenido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contenido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

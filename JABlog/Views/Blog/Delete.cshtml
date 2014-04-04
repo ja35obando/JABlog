@@ -1,0 +1,35 @@
+﻿@model JABlog.Models.Blog
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Eliminar el blog
+        </h1>
+        <br />
+    </div>
+    <h3 class="warning">¿Estás seguro de eliminar esto?</h3>
+    <fieldset>
+        <legend>Blog</legend>
+        <h2 style="text-align:center;">@Html.DisplayFor(model => model.Name)</h2>
+        <br />
+        <article id="articulo2">
+            @Html.DisplayFor(model => model.Detalle)
+        </article> <br />
+    </fieldset>
+    @using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div class="col-md-14">
+        <input type="submit" class="btn btn-lg btn-success btn-block" value="Eliminar">
+    </div>
+    }
+    <br />
+    <ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+        <li data-slide-to="0" class="active">@Html.ActionLink("Volver a la lista", "Index")</li> 
+    </ul>
+</div>
+

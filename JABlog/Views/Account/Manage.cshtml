@@ -1,0 +1,34 @@
+﻿@model JABlog.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Administrar cuenta";
+}
+
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title.
+    </h1>
+    <br />
+    <p style="text-align:right;">Ha iniciado sesión como <strong>@User.Identity.Name</strong>.</p>
+</div>
+@if (ViewBag.StatusMessage != "")
+{
+    <div class="alert alert-success-alt alert-dismissable">
+                <span class="glyphicon glyphicon-certificate"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>@ViewBag.StatusMessage</div>
+}
+
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,29 @@
+﻿@model JABlog.Models.Blogger
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Detalles de la blog
+        </h1>
+        <br />
+    </div>
+    <fieldset>
+        <legend>Blog</legend>
+        <h2 style="text-align:center;">@Html.DisplayFor(model => model.Name)</h2>
+        <br />
+        <article id="articulo2">
+            @Html.DisplayFor(model => model.Bio)
+        </article> <br />
+    </fieldset>
+    <ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+        <li data-slide-to="0" class="active">@Html.ActionLink("Edit", "Edit", new { id=Model.id })</li> 
+        <li data-slide-to="0" class="active">@Html.ActionLink("Volver a la lista", "Index")</li> 
+    </ul>
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model JABlog.Models.Comentario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Comentario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdUsuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdUsuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdNoticia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdNoticia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comentarios)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comentarios)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
