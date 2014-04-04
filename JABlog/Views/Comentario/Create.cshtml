@@ -4,48 +4,48 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
+<div class="container">
+    <div class="panel">
+        <br />
+        <h1 style="text-align:center;">
+            Crear el Comentario
+        </h1>
+        <br />
+    </div>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Comentario</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdUsuario)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdUsuario)
-            @Html.ValidationMessageFor(model => model.IdUsuario)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdNoticia)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdNoticia)
-            @Html.ValidationMessageFor(model => model.IdNoticia)
-        </div>
-
+        <legend>Blog</legend>
+        <div class="input-group hidden">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            <input type="text" name="Name" id="Name" class="form-control input-lg" placeholder="Usuario" value="1"  required/>
+		</div>
+        <div class="input-group hidden">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
+            <input type="text" name="Bio" id="Bio" class="form-control input-lg" placeholder="Noticia" value="1" required/>
+		</div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Comentarios)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Comentarios)
-            @Html.ValidationMessageFor(model => model.Comentarios)
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit"></span></span>
+            <input type="text" name="Comentarios" id="Comentarios" class="form-control input-lg" placeholder="Comentarios" required/>
+		</div>
+        <br />
+        <div class="col-md-14">
+            <input type="submit" class="btn btn-lg btn-success btn-block" value="Crear">
         </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <br />
+<ul class="nav nav-pills nav-justified" style="margin-bottom:2%">
+    <li data-slide-to="0" class="active">@Html.ActionLink("Volver a la lista", "Index")</li> 
+</ul>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
