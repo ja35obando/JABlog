@@ -200,6 +200,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-JABlog-20140403123142.mdf" />
+    <Content Include="App_Data\aspnet-JABlog-20140403123142_log.ldf">
+      <DependentUpon>aspnet-JABlog-20140403123142.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\global.css" />
     <Content Include="Content\HomeAbout.css" />
     <Content Include="Content\HomeComment.css" />
@@ -341,9 +345,7 @@
     <Content Include="Views\Comentario\Edit.cshtml" />
     <Content Include="Views\Comentario\Delete.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
