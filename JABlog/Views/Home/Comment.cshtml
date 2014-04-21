@@ -1,4 +1,5 @@
-﻿@model JABlog.Models.Entradas
+﻿@model JABlog.Models.Comentario
+
 @{
     Page.id = "HomeComment";
 }
@@ -9,65 +10,26 @@
     <div class="panel">
         <br />
         <h1>
-            @Html.DisplayFor(model => model.Titulo)
+            @ViewBag.Titulo
         </h1>
         <br />
     </div>
     <br />
     <article id="articulo2">
-        @Html.DisplayFor(model => model.Contenido)
+        @ViewBag.contenido
     </article> <br />
     <br /> <br />
     <div class="timeline-footer">
-        <a class="btn btn-blog pull-right marginBottom10" title="11 hours ago via Twitter">Posteado: <em>  @Html.DisplayFor(model => model.Fecha) </em></a> 
-        <div class="fb-like" data-href="http://localhost:1726/Home/Comment/@Html.DisplayFor(model => model.id)" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+        <a class="btn btn-blog pull-right marginBottom10" title="11 hours ago via Twitter">Posteado: <em>  @ViewBag.fecha </em></a> 
+        <div class="fb-like" data-href="http://localhost:1726/Home/Comment/@ViewBag.id" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
     </div>
 </div>
 <br />
 <legend>Comentarios</legend>
 <div class='row'>
      <div class="col-xs-6 col-sm-6 col-md-7">
-        <div class="fb-comments" data-href="http://localhost:1726/Home/Comment/@Html.DisplayFor(model => model.id)" data-numposts="5" data-colorscheme="light"></div>
+        <div class="fb-comments" data-href="http://localhost:1726/Home/Comment/@ViewBag.id" data-numposts="5" data-colorscheme="light"></div>
     </div>
-     <div class="col-xs-6 col-sm-6 col-md-5">
-        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-            <!-- Bottom Carousel Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-              <li data-target="#quote-carousel" data-slide-to="1"></li>
-              <li data-target="#quote-carousel" data-slide-to="2"></li>
-            </ol>
-        
-            <!-- Carousel Slides / Quotes -->
-            <div class="carousel-inner">
-        
-              <!-- Quote 1 -->
-              <div class="item active">
-                <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                    <small>Someone famous</small>
-                </blockquote>
-              </div>
-              <!-- Quote 2 -->
-              <div class="item">
-                <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                    <small>Someone famous</small>
-                </blockquote>
-              </div>
-              <!-- Quote 3 -->
-              <div class="item">
-                <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                    <small>Someone famous</small>
-                </blockquote>
-              </div>
-            </div>
-        
-            <!-- Carousel Buttons Next/Prev -->
-            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-      </div>   
-    </div>
+    
 </div>
 <br />

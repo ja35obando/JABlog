@@ -16,7 +16,7 @@ namespace JABlog
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Comentario", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Blogger", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

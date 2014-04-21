@@ -37,7 +37,14 @@ namespace JABlog.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                if (model.UserName.Equals("José Obando"))
+                {
+                    return RedirectToAction("Administrador", "Home");
+                }
+                else
+                {
+                    return RedirectToLocal(returnUrl);
+                }
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario

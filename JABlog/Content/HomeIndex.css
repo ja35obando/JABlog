@@ -48,3 +48,21 @@
 h1 {text-align: center;}
 h2{color:#21963B;}
 .margin10{margin-bottom:10px; margin-right:10px;}
+
+#container {
+    padding: 20px; 
+    width: 480px; 
+    margin: 100px auto 0 auto;
+    font-family: Arial, sans-serif;
+    }
+     
+.paginator_p {
+    height: 30px;
+    width: 30px;    
+    line-height: 30px;
+    text-align: center;
+     
+    font-size: 13px;
+    font-weight: bold;
+    color: #26430c;
+    }
